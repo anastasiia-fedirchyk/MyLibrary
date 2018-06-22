@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Author Creation</title>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!--Main CSS file-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jQuery -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="js/index.js"></script>
+</head>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Welcome to Library</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <<li><a href="#">Create Category</a></li>
+      <li><a href="active">Create Author</a></li>
+      <li><a href="#">Create Book</a></li>
+    </ul>
+  </div>
+</nav>
+<div id="signup">
+    <h3>Enter information about Author</h3>
+<label for="usr">Author First Name</label>
+<input type="firstName" class="form-control" id="usr">
+</div>
+<div class="form-group">
+  <label for="pwd">Author Last Name</label>
+  <input type="lastName" class="form-control " id="pwd">
+</div>
+<div class="form-group">
+  <label for="usr">Birth Date</label>
+<div class="input-group" id="datetimepicker1">
+    <input type="text" class="form-control" />
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+</div>
+<div class="form-group">
+  <label for="pwd">Description</label>
+  <input type="lastName" class="form-control input-lg" id="pwd">
+</div>
+<button type="submit" class="btn btn-primary btn-md">Create Author</button>

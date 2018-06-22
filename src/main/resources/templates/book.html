@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Creation</title>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!--Main CSS file-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- jQuery -->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+<!-- Header -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Welcome to Library</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/book/">Create Book</a></li>
+            <li><a href="/author/">Create Author</a></li>
+            <li><a href="/category/">Create Category</a></li>
+            <li><a href="/publisher/">Create Publisher</a></li>
+            <li><a href="/book/find">Find Book</a></li>
+        </ul>
+    </div>
+</nav>
+
+<form action="#" th:action="@{/book/create}"
+      th:object="${book}" method="post" class="m-t" role="form">
+
+    <div class="col-xs-4">
+        <div style="padding: 20px">
+            <h3>Enter information:</h3>
+            <label for="book">Book Name</label>
+            <input th:field="*{bookName}" type="text" required autocomplete="off" id="book">
+        </div>
+
+        <div class="dropdown" >
+            <select th:field="*{authorIds}">
+                <option value="0">Authors</option>
+                <option th:each="author:${authors}" th:value="${author.authorId}" th:utext="${author.firstName}"/>
+            </select>
+
+            <select th:field="*{categoriesId}">
+                <option value="0">Categories</option>
+                <option th:each="category:${categories}" th:value="${category.categoryId}" th:utext="${category.name}"/>
+            </select>
+            <select th:field="*{publishersId}">
+                <option value="0">Publishers</option>
+                <option th:each="publisher:${publishers}" th:value="${publisher.publisherId}" th:utext="${publisher.namePublisher}"/>
+            </select>
+        </div>
+
+
+        <!--<div class="dropdown" style="padding: 20px">-->
+            <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Author Name-->
+                <!--<span class="caret"></span></button>-->
+            <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">1</a></li>-->
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="dropdown" style="padding: 20px">-->
+            <!--<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Category Name-->
+                <!--<span class="caret"></span></button>-->
+            <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">a</a></li>-->
+                <!--<li><a href="#">b</a></li>-->
+                <!--<li><a href="#">c</a></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <div style="padding: 20px">
+            <button type="submit" class="btn btn-primary btn-md">Create Book</button>
+        </div>
+    </div>
+</form>
+</body>
